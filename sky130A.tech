@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------
 # Copyright (c) 2020 R. Timothy Edwards
 # Revisions:  See below
-#
+# 
 # This file is an Open Source foundry process describing
 # the SkyWater sky130 hybrid 0.18um / 0.13um fabrication
 # process.  The file may be distributed under the terms
@@ -438,165 +438,6 @@ end
 #-----------------------------------------------------
 
 styles
- styletype mos
-  dnwell    cwell
-  isosub    subcircuit
-  nwell     nwell
-  pwell	    pwell
-  rpwell    pwell 	ptransistor_stripes
-  photo	    nwell	nwell_field_implant
-  ndiff     ndiffusion
-  fomfill   ndiffusion
-  pdiff     pdiffusion
-  nsd       ndiff_in_nwell
-  psd       pdiff_in_pwell
-  nfet      ntransistor    ntransistor_stripes
-  scnfet    ntransistor    ntransistor_stripes
-  npass	    ntransistor	   ntransistor_stripes
-  npd	    ntransistor	   ntransistor_stripes
-  pfet      ptransistor    ptransistor_stripes
-  scpfet    ptransistor    ptransistor_stripes
-  scpfethvt ptransistor    ptransistor_stripes implant2
-  ppu	    ptransistor	   ptransistor_stripes
-  var       polysilicon    ndiff_in_nwell
-  ndc       ndiffusion     metal1  contact_X'es
-  pdc       pdiffusion     metal1  contact_X'es
-  nsc       ndiff_in_nwell metal1  contact_X'es
-  psc       pdiff_in_pwell metal1  contact_X'es
-  corenvar  polysilicon    ndiff_in_nwell
-  corepvar  polysilicon    pdiff_in_pwell
-
-  pnp	    nwell ntransistor_stripes
-  npn	    pwell ptransistor_stripes
-
-  pfetlvt   ptransistor	ptransistor_stripes implant1
-  pfetmvt   ptransistor	ptransistor_stripes implant3
-  pfethvt   ptransistor ptransistor_stripes implant2
-  nfetlvt   ntransistor ntransistor_stripes implant1
-  nsonos    ntransistor implant3
-  varhvt    polysilicon ndiff_in_nwell implant2
-  nnfet	    ntransistor ndiff_in_nwell
-
-  mvndiff   ndiffusion     hvndiff_mask
-  mvpdiff   pdiffusion     hvpdiff_mask
-  mvnsd     ndiff_in_nwell hvndiff_mask
-  mvpsd     pdiff_in_pwell hvpdiff_mask
-  mvnfet    ntransistor    ntransistor_stripes hvndiff_mask
-  mvnfetesd ntransistor    ntransistor_stripes hvndiff_mask
-  mvnnfet   ntransistor    ndiff_in_nwell hvndiff_mask
-  mvpfet    ptransistor    ptransistor_stripes
-  mvpfetesd ptransistor    ptransistor_stripes
-  mvvar     polysilicon    ndiff_in_nwell hvndiff_mask
-  mvndc     ndiffusion     metal1  contact_X'es hvndiff_mask
-  mvpdc     pdiffusion     metal1  contact_X'es hvpdiff_mask
-  mvnsc     ndiff_in_nwell metal1  contact_X'es hvndiff_mask
-  mvpsc     pdiff_in_pwell metal1  contact_X'es hvpdiff_mask
-
-  poly      polysilicon 
-  polyfill  polysilicon
-  pc        polysilicon    metal1  contact_X'es
-  npolyres  polysilicon    silicide_block nselect2
-  ppolyres  polysilicon    silicide_block pselect2
-  xpc	    polysilicon	   pselect2  metal1  contact_X'es
-  rmp	    polysilicon	   poly_resist_stripes
-
-  res0p35   implant1
-  res0p69   implant1
-  res1p41   implant1
-  res2p85   implant1
-  res5p73   implant1
-  pnp0p68   implant1
-  pnp3p40   implant1
-  npn1p00   implant1
-  npn2p00   implant1
-  npn11p0   implant1
-
-  pdiode    pdiffusion     pselect2
-  ndiode    ndiffusion     nselect2
-  pdiodec   pdiffusion     pselect2 metal1 contact_X'es
-  ndiodec   ndiffusion     nselect2 metal1 contact_X'es
-
-  nndiode   ndiffusion  nselect2 implant3
-  ndiodelvt ndiffusion	nselect2 implant1
-  pdiodelvt pdiffusion  pselect2 implant1
-  pdiodehvt pdiffusion  pselect2 implant2
-  pdilvtc   pdiffusion  pselect2 implant1 metal1 contact_X'es
-  pdihvtc   pdiffusion  pselect2 implant2 metal1 contact_X'es
-  ndilvtc   ndiffusion  nselect2 implant1 metal1 contact_X'es
-
-  mvpdiode    pdiffusion     pselect2 hvpdiff_mask
-  mvndiode    ndiffusion     nselect2 hvndiff_mask
-  mvpdiodec   pdiffusion     pselect2 metal1 contact_X'es hvpdiff_mask
-  mvndiodec   ndiffusion     nselect2 metal1 contact_X'es hvndiff_mask
-  nndiodec    ndiff_in_nwell nselect2 metal1 contact_X'es hvndiff_mask
-
-  locali    metal1
-  lifill    metal1
-  coreli    metal1
-  rli       metal1         poly_resist_stripes
-  mcon	    metal1	   metal2 via1arrow
-  obsli     metal1
-  obsmcon   metal1	   metal2 via1arrow
-
-  metal1    metal2
-  m1fill    metal2
-  rm1       metal2         poly_resist_stripes
-  obsm1     metal2
-  m2c       metal2         metal3  via2arrow
-
-
-  metal2    metal3
-  m2fill    metal3
-  rm2       metal3         poly_resist_stripes
-  obsm2     metal3
-  m3c       metal3         metal4  via3alt
-  metal3    metal4
-  m3fill    metal4
-  rm3       metal4         poly_resist_stripes
-  obsm3     metal4
-  mimcap    metal3         mems
-  mimcc     metal3         contact_X'es mems
-  mimcap2   metal4         mems
-  mim2cc    metal4         contact_X'es mems
-  via3      metal4         metal5  via4
-  metal4    metal5
-  m4fill    metal5
-  rm4       metal5         poly_resist_stripes
-  obsm4     metal5
-  via4      metal5         metal6  via5
-  metal5    metal6
-  m5fill    metal6
-  rm5       metal6         poly_resist_stripes
-  obsm5     metal6
-  mrdlc	    metal6  metal7  via6
-  metalrdl  metal7
-  obsmrdl   metal7
-  ubm	    metal8
-  pi2	    metal7  metal8  via7
-
-  glass	    overglass
-  mrp1      poly_resist    poly_resist_stripes
-  xhrpoly   poly_resist    silicide_block
-  uhrpoly   poly_resist
-  ndiffres  ndiffusion	   ndop_stripes
-  pdiffres  pdiffusion	   pdop_stripes
-  mvndiffres  ndiffusion hvndiff_mask   ndop_stripes
-  mvpdiffres  pdiffusion hvpdiff_mask   pdop_stripes
-  comment   comment
-  error_p   error_waffle
-  error_s   error_waffle
-  error_ps  error_waffle
-  fillblock cwell
-  fillblock4 cwell
-
-  obswell   cwell
-  obsactive implant4
-
-  padl      metal6 via6 overglass
-
-  magnet    substrate_field_implant
-  rotate    via3alt
-  fence     via5
 end
 
 #-----------------------------------------------------
@@ -710,14 +551,6 @@ end
 
 cifoutput
 
-#----------------------------------------------------------------
-style gdsii
-# Minimal placeholder retained for Magic techfile completeness.
-# Full GDS output, density, and wafflefill rules are not needed for RC extraction calibration.
-#----------------------------------------------------------------
- scalefactor 10  nanometers
- options calma-permissive-labels
- gridlimit 5
 
 style drc
 #----------------------------------------------------------------
@@ -1057,21 +890,6 @@ end
 
 #-----------------------------------------------------------------------
 cifinput
-#-----------------------------------------------------------------------
-# Minimal CIF/GDS input placeholders retained for Magic techfile completeness.
-# Detailed GDS input layer mapping is not needed for LEF/DEF-based RC extraction calibration.
-#-----------------------------------------------------------------------
-
-style  sky130 variants (vendor),()
- scalefactor 10 nanometers
- gridlimit 5
- options ignore-unknown-layer-labels no-reconnect-labels
-
-style  rdlimport
- scalefactor 10 nanometers
- gridlimit 5
- options ignore-unknown-layer-labels no-reconnect-labels
-
 end
 
 mzrouter
@@ -3074,4 +2892,3 @@ end
 
 plot
 end
-
