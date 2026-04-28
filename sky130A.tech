@@ -3072,6 +3072,5 @@ end
 # No special plot layers defined (use default PNM color choices)
 #-----------------------------------------------------------------
 
-plot
-end
+
 
